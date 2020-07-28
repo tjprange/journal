@@ -16,9 +16,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextFormField(
-            
-          )
+          TextFormField()
         ]
       )
     );
