@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:journal/widgets/textformfield_widget.dart';
 
-class MyCustomForm extends StatefulWidget {
+class JournalForm extends StatefulWidget {
   @override
-  _MyCustomFormState createState() => _MyCustomFormState();
+  _JournalForm createState() => _JournalForm();
 }
 
-class _MyCustomFormState extends State<MyCustomForm> {
+class _JournalForm extends State<JournalForm> {
   
   final formKey = GlobalKey<FormState>();
 
@@ -14,9 +15,11 @@ class _MyCustomFormState extends State<MyCustomForm> {
     return Form(
       key: formKey,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          TextFormField()
+          textFormFieldWidget(context, 'Title'),
+          textFormFieldWidget(context, 'Body'),
+          textFormFieldWidget(context, 'Rating')
         ]
       )
     );

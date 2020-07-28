@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:journal/widgets/journal_form.dart';
 
 class NewEntryScreen extends StatelessWidget {
   @override
@@ -6,7 +7,8 @@ class NewEntryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Journal Entry')
-      )
+      ),
+      body: JournalForm(),
     );
   }
 }
