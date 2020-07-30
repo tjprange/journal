@@ -16,6 +16,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   // _DrawerWidgetState({this.isDark});
   @override
   Widget build(BuildContext context) {
+    // reach up in the widget tree for MyAppState widget
+    MyAppState appState = context.findAncestorStateOfType<MyAppState>();
+
     return Drawer(
         child: ListView(padding: EdgeInsets.zero, children: <Widget>[
       DrawerHeader(
@@ -27,10 +30,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         children: <Widget>[
           Text('Dark Mode:'),
           Switch(
-              value: MyApp().getIsDark,
+              value: appState.getIsDark,
               onChanged: (value) {
                 setState(() {
-                  MyApp.isDark = value;
+                  appState.updateTheme();
                   //MyApp().setIsDark(value);
                   //print(value);
                 });

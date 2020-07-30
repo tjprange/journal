@@ -29,33 +29,35 @@ import 'screens/welcome_screen.dart';
 // }
 
 class MyApp extends StatefulWidget {
-  static bool isDark = false;
-  bool get getIsDark => isDark;
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  
-  void updateTheme() {
-    setState(() {
-      MyApp.isDark = !MyApp.isDark;
-    });
-  }
-
   static final routes = {
-    '/': (context) => WelcomeScreen(/*isDark: isDark*/ /*updateTheme: updateTheme,*/),
+    '/': (context) =>
+        WelcomeScreen(/*isDark: isDark*/ /*updateTheme: updateTheme*/),
     'one_entry': (context) => JournalEntryScreen(),
     'new_entry': (context) => NewEntryScreen(),
     'all_entry': (context) => JournalEntriesScreen()
   };
 
-  void initState() {
-    super.initState();
-    //isDark = !isDark;
-    //isDark = false;
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  bool isDark = false;
+  bool get getIsDark => isDark;
+
+  List<JournalEntry> entries = [];
+
+  void updateTheme() {
+    setState(() {
+      isDark = !isDark;
+    });
   }
+
+  // void initState() {
+  //   super.initState();
+  //   //isDark = !isDark;
+  //   //isDark = false;
+  // }
 
   // ThemeData _getTheme() {
   //   //print(MyApp.isDark);
@@ -70,10 +72,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       //title: 'Flutter Demo',
-      theme: /*_getTheme()*/ MyApp.isDark
-          ? ThemeData.dark()
-          : ThemeData.light(),
-      routes: routes,
+      theme: /*_getTheme()*/ isDark ? ThemeData.dark() : ThemeData.light(),
+      routes: MyApp.routes,
     );
   }
 }

@@ -9,13 +9,13 @@ Widget textFormFieldWidget(
   return Padding(
     padding: const EdgeInsets.all(5),
     child: TextFormField(
-      autofocus: true,
+      //autofocus: true, // automatically opens keyboard
       decoration:
           InputDecoration(labelText: name, border: OutlineInputBorder()),
       validator: (value) {
         if (value.isEmpty) {
           return 'Please complete form';
-        }
+        }       
         return null;
       },
       onSaved: (value) {
@@ -25,9 +25,9 @@ Widget textFormFieldWidget(
         else if (name == 'Body') {
           entry.body = value;
         }
-        else if (name == 'Rating') {
-          entry.rating = value;
-        }
+        // else if (name == 'Rating') {
+        //   entry.rating = value;
+        // }
       },
     ),
   );

@@ -1,7 +1,9 @@
 class JournalEntry {
-  // TO DO: Build constructor???     
+  
+  JournalEntry({this.title, this.body, this.rating, this.date});
+
   String title;
   String body;
-  String rating;
+  int rating;
   DateTime date;
 }
