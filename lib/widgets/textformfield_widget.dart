@@ -1,6 +1,11 @@
-import 'package:flutter/material.dart';
+import 'dart:ffi';
 
-Widget textFormFieldWidget(BuildContext context, String name) {
+import 'package:flutter/material.dart';
+import 'package:journal/models/journal_entry.dart';
+//import 'package:journal/models/journal_entry.dart';
+
+Widget textFormFieldWidget(
+    BuildContext context, String name, JournalEntry entry) {
   return Padding(
     padding: const EdgeInsets.all(5),
     child: TextFormField(
@@ -12,6 +17,17 @@ Widget textFormFieldWidget(BuildContext context, String name) {
           return 'Please complete form';
         }
         return null;
+      },
+      onSaved: (value) {
+        if (name == 'Title') {
+          entry.title = value;
+        }
+        else if (name == 'Body') {
+          entry.body = value;
+        }
+        else if (name == 'Rating') {
+          entry.rating = value;
+        }
       },
     ),
   );
