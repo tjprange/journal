@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:journal/app.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DrawerWidget extends StatefulWidget {
   // bool isDark;
   // DrawerWidget({this.isDark});
   final void Function() updateTheme;
   DrawerWidget({this.updateTheme});
-  
+
   @override
   _DrawerWidgetState createState() => _DrawerWidgetState(/*isDark: isDark*/);
 }
@@ -32,10 +33,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           Switch(
               value: appState.getIsDark,
               onChanged: (value) {
-                setState(() {
+                setState(() async {
                   appState.updateTheme();
-                  //MyApp().setIsDark(value);
-                  //print(value);
+                  final SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.setBool('isDark', appState.getIsDark);
                 });
               }),
         ],

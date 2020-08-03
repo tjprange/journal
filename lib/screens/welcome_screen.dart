@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:journal/app.dart';
 import 'package:journal/components/drawer_widget.dart';
+import 'package:journal/screens/new_entry_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override
@@ -34,9 +34,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
       endDrawer: DrawerWidget(),
       floatingActionButton: FloatingActionButton(
+        // onPressed: () {
+        //   //Navigator.pushNamed(context, 'new_entry');
+        // },
         onPressed: () {
-          Navigator.pushNamed(context, 'new_entry');
-        },
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NewEntryScreen()),
+            );
+          },
         child: Icon(Icons.add),
       ),
     );

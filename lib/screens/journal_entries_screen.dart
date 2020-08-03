@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:journal/components/drawer_widget.dart';
-import 'package:journal/components/entry_scroll_list.dart';
+import 'package:journal/components/vert_entry_scroll_list.dart';
+import 'package:journal/components/horiz_entry_screen.dart';
+import 'package:journal/screens/new_entry_screen.dart';
 
 class JournalEntriesScreen extends StatefulWidget {
   @override
@@ -32,13 +34,24 @@ class _JournalEntriesScreenState extends State<JournalEntriesScreen> {
             )
           ],
         ),
-        body: EntryScrollList(),
+        body: LayoutBuilder(builder: layoutDecider),
         endDrawer: DrawerWidget(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pushNamed(context, 'new_entry');
+            //Navigator.pushNamed(context, 'new_entry');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => NewEntryScreen()),
+            );
           },
           child: Icon(Icons.add),
         ));
   }
+
+  // Change layout based on screen constraints
+  Widget layoutDecider(BuildContext context, BoxConstraints constraints) =>
+      constraints.maxWidth < 500
+          ? VertEntryScrollList()
+          : HorizontalScrollList();
 }
+

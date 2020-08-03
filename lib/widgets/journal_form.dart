@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:journal/widgets/textformfield_widget.dart';
 import 'package:journal/models/journal_entry.dart';
 import 'package:journal/app.dart';
+import 'package:journal/screens/journal_entries_screen.dart';
 
 class JournalForm extends StatefulWidget {
   @override
@@ -23,7 +24,6 @@ class _JournalForm extends State<JournalForm> {
           // Custom FormFields
           textFormFieldWidget(context, 'Title', journalEntry),
           textFormFieldWidget(context, 'Body', journalEntry),
-          //textFormFieldWidget(context, 'Rating', journalEntry),
           TextFormField(
               // numeric value w/ validation
               keyboardType: TextInputType.number,
@@ -56,13 +56,14 @@ class _JournalForm extends State<JournalForm> {
                   journalEntry.date = DateTime.now();
                   formKey.currentState.save();
                   appState.entries.add(journalEntry);
-                  //print(appState.entries);
 
                   // TODO: Navigate to next screen here
-                  Navigator.pushNamed(context, 'all_entry');
-                  //print('${journalEntry.title}');
-                  //print('${journalEntry.body}');
-                  //print('${journalEntry.rating}');
+                  //Navigator.pushNamed(context, 'all_entry');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => JournalEntriesScreen()),
+                  );
                 }
               },
               child: Text('Submit'),
