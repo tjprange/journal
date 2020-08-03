@@ -27,11 +27,7 @@ class _HorizontalScrollListState extends State<HorizontalScrollList> {
           itemBuilder: (context, index) {
             return ListTile(
               title: Text(appState.entries[index].body),
-              subtitle: Text(appState.entries[index].date.month.toString() +
-                  '/' +
-                  appState.entries[index].date.day.toString() +
-                  '/' +
-                  appState.entries[index].date.year.toString()),
+              subtitle: Text(appState.entries[index].date),
               onTap: () {
                 setState(() {
                   updateEntry(appState.entries[index]);
@@ -58,14 +54,11 @@ Widget getWidget(JournalEntry entry) {
     // return a list tile including the contents of the selected journal entry
     return ListTile(
       leading: Icon(Icons.format_align_justify),
-      title: Text(
+      title: Text
+      (
           entry.title +
               ' ' +
-              entry.date.day.toString() +
-              '/' +
-              entry.date.month.toString() +
-              '/' +
-              entry.date.year.toString(),
+              entry.date,
           style: TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(entry.body),
       trailing: Text('Rating:' + entry.rating.toString()),

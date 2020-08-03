@@ -5,5 +5,5 @@ class JournalEntry {
   String title;
   String body;
   int rating;
-  DateTime date;
+  String date;
 }

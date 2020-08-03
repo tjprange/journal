@@ -41,14 +41,7 @@ class _JournalEntryScreenState extends State<JournalEntryScreen> {
         ),
         body: ListTile(
           leading: Icon(Icons.format_align_justify),
-          title: Text(
-              journalEntry.title +
-                  ' ' +
-                  journalEntry.date.day.toString() +
-                  '/' +
-                  journalEntry.date.month.toString() +
-                  '/' +
-                  journalEntry.date.year.toString(),
+          title: Text(journalEntry.title + ' ' + journalEntry.date,
               style: TextStyle(fontWeight: FontWeight.bold)),
           subtitle: Text(journalEntry.body),
           trailing: Text('Rating:' + journalEntry.rating.toString()),

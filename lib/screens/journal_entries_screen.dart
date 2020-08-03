@@ -4,6 +4,7 @@ import 'package:journal/components/vert_entry_scroll_list.dart';
 import 'package:journal/components/horiz_entry_screen.dart';
 import 'package:journal/screens/new_entry_screen.dart';
 
+
 class JournalEntriesScreen extends StatefulWidget {
   @override
   _JournalEntriesScreenState createState() => _JournalEntriesScreenState();
