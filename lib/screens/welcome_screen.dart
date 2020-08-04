@@ -34,9 +34,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
       endDrawer: DrawerWidget(),
       floatingActionButton: FloatingActionButton(
-        // onPressed: () {
-        //   //Navigator.pushNamed(context, 'new_entry');
-        // },
         onPressed: () {
             Navigator.push(
               context,

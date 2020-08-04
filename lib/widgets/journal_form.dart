@@ -83,7 +83,6 @@ class _JournalForm extends State<JournalForm> {
                           today,
                         ]);
                   });
-                  //await database.close();
 
                   Navigator.push(
                     context,

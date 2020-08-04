@@ -3,18 +3,15 @@ import 'package:journal/app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DrawerWidget extends StatefulWidget {
-  // bool isDark;
-  // DrawerWidget({this.isDark});
   final void Function() updateTheme;
   DrawerWidget({this.updateTheme});
 
   @override
-  _DrawerWidgetState createState() => _DrawerWidgetState(/*isDark: isDark*/);
+  _DrawerWidgetState createState() => _DrawerWidgetState();
 }
 
+// This will toggle the theme using updateTheme() from MyApp
 class _DrawerWidgetState extends State<DrawerWidget> {
-  // bool isDark;
-  // _DrawerWidgetState({this.isDark});
   @override
   Widget build(BuildContext context) {
     // reach up in the widget tree for MyAppState widget

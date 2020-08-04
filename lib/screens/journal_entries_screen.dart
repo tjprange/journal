@@ -10,6 +10,7 @@ class JournalEntriesScreen extends StatefulWidget {
   _JournalEntriesScreenState createState() => _JournalEntriesScreenState();
 }
 
+// This class will determine the layout based on the available screen width
 class _JournalEntriesScreenState extends State<JournalEntriesScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -39,7 +40,6 @@ class _JournalEntriesScreenState extends State<JournalEntriesScreen> {
         endDrawer: DrawerWidget(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            //Navigator.pushNamed(context, 'new_entry');
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => NewEntryScreen()),

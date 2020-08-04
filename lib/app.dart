@@ -4,15 +4,8 @@ import 'package:journal/screens/journal_entries_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/welcome_screen.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:journal/models/journal.dart';
 
 class MyApp extends StatefulWidget {
-  // static final routes = {
-  //   '/': (context) => WelcomeScreen(),
-  //   //'one_entry': (context) => JournalEntryScreen(),
-  //   'new_entry': (context) => NewEntryScreen(),
-  //   'all_entry': (context) => JournalEntriesScreen()
-  // };
 
   @override
   MyAppState createState() => MyAppState();

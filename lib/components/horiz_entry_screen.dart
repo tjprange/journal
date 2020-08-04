@@ -7,6 +7,8 @@ class HorizontalScrollList extends StatefulWidget {
   _HorizontalScrollListState createState() => _HorizontalScrollListState();
 }
 
+// This will desplay a ListView of journal entries on the left 
+// and a selected journal entry on the right 
 class _HorizontalScrollListState extends State<HorizontalScrollList> {
   JournalEntry journalEntry;
 
@@ -46,6 +48,8 @@ class _HorizontalScrollListState extends State<HorizontalScrollList> {
   }
 }
 
+// This will return a blank list if no entries exists
+// Or a list of entries if otherwise
 Widget getWidget(JournalEntry entry) {
   if (entry == null) {
     // right side of screen is blank on initial build
