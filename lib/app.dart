@@ -6,7 +6,6 @@ import 'screens/welcome_screen.dart';
 import 'package:sqflite/sqflite.dart';
 
 class MyApp extends StatefulWidget {
-
   @override
   MyAppState createState() => MyAppState();
 }
@@ -17,11 +16,9 @@ class MyAppState extends State<MyApp> {
 
   // Holds list of journal entries
   List<JournalEntry> entries = [];
-  //Journal journal;
 
   void initState() {
     super.initState();
-
     initIsDark();
     loadJournal();
   }
@@ -34,7 +31,7 @@ class MyAppState extends State<MyApp> {
       await db.execute(
           'CREATE TABLE IF NOT EXISTS journal_entries(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, body TEXT, rating INTEGER, date TEXT);');
     });
-    
+
     List<Map> journalRecords =
         await database.rawQuery('SELECT * FROM journal_entries');
 
@@ -68,10 +65,20 @@ class MyAppState extends State<MyApp> {
   // this will choose the home:
   //  WelcomeScreen if no entries, otherwise JournalEntries
   Widget _checkHomeScreen() {
-    if (entries.length == 0) {
-      return WelcomeScreen();
+    // wait for database to load
+    if (entries == null) {
+      return Scaffold(
+          appBar: AppBar(title: Center(child: Text('Loading'))),
+          body: CircularProgressIndicator()
+          
+          //return WelcomeScreen();
+          );
+    } else {
+      if (entries.isEmpty) {
+        return WelcomeScreen();
+      }
+      return JournalEntriesScreen();
     }
-    return JournalEntriesScreen();
   }
 
   @override
@@ -79,9 +86,7 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       //title: 'Flutter Demo',
       theme: isDark ? ThemeData.dark() : ThemeData.light(),
-
       home: _checkHomeScreen(),
-      //routes: MyApp.routes,
     );
   }
 }
